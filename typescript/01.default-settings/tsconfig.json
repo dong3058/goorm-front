@@ -1,0 +1,19 @@
+{
+    "compilerOptions":{
+        "rootDir": "./src",//ts작성장소
+        "outDir":"./build/js",//js를 만ㄷ르어줄장소
+        "target": "ES6",//js로변환한 파일을 버전 몇으로 할것인지.
+        "noEmitOnError":true,//오류가있으면 js로 바꾸지않겟다는 의미.
+        "module":"ESNext",
+        "moduleResolution": "Node",//스크립트 컴파일러가 모듈을 찾는방법.
+        "esModuleInterop":true,
+        "lib":["ESNext","DOM"],//esenext,dom을 없애버리면 console도작동안함.
+        //그냥 주석처리 즉 아예지워벌면 기본값으로 작동
+        "strict":true,
+        "strictNullChecks":true
+    },
+    "include":[//컴파일러 이용햇 변환할 폴더경로지정.exclude는 변환안할애
+        "./src/**/*.ts"
+    ]//src아래의 파일만 ts->jsㅎ게만드는것
+    //extends: 상속해서 사용할 다른 ts파일지정.
+}

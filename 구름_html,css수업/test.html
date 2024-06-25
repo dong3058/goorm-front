@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body{
+        display:flex;
+        align-items:center;
+        flex-direction:row;
+        width:100vw;
+        background-color:black;
+        height:100vh;
+        justify-content:space-between;
+        
+    }
+    .b{
+       /* left:300px;*/
+        
+        width:100px;
+        height:100px;
+        background-color:white;
+        font-size:50px;
+        z-index:5;
+        transition: width 1s,height 1s,left 1s ,opacity 1s;
+        
+
+     
+    }
+    .a{
+       
+        /*left:200px;*/
+        width:80px;
+        height:80px;
+        background-color:white;
+        font-size:50px;
+        z-index:5;
+        opacity:0.9;
+        transition:width 1s,height 1s,left 1s,opacity 1s;
+        opacity:0.8;
+
+
+     
+    }
+    .c{
+       
+        width:80px;
+        height:80px;
+        background-color:white;
+        font-size:50px;
+        z-index:5;
+        /*left: 420px;*/
+        opacity:0.9;
+        transition: width 1s,height 1s,left 1s,opacity 1s;
+        opacity:0.8;
+
+   
+    }
+
+    .direction{
+        position:absolute;
+        width:50px;
+        height:50px;
+        background-color:blue;
+        top:400px;
+        left:325px;
+        
+    }
+
+
+</style>
+</head>
+
+<body>
+
+    <div class="a box">A
+        
+    </div>
+    <div class="b box">B</div>
+    <div class="c box">C</div>
+
+
+    <div class="direction">
+    </div>
+    <script>
+        let x=document.querySelectorAll(".box");
+        /*x[0].style.left="200px";
+        x[1].style.left="300px";
+        x[2].style.left="420px";*/
+        let direction=document.querySelector(".direction");
+        let size=["80px","100px","80px"]
+        let position=["200px","300px","420px"]
+        let left=[];
+        let opacity=[0.8,1,0.8]
+        for(let k=0;k<3;k++){
+            left.push(x[k].offsetLeft)
+            x[k].style.left=left[k];    
+        }
+        console.log(left)
+       direction.addEventListener("mouseover",()=>{
+         for(let k=0;k<3;k++){
+            let z=x[k].style.left;
+            console.log("z:",z)
+            let w=left.indexOf(x[k].style.left)
+            x[k].style.left=left.at(w-1)
+            x[k].style.width=size.at(w-1)
+            x[k].style.height=size.at(w-1)}
+        })
+        for(let k=0;k<3;k++){
+            x[k].addEventListener("click",()=>{
+                console.log(position.indexOf(x[k].style.left))
+                let index=position.indexOf(x[k].style.left);
+                if(index<1){
+
+                    for(let j=0;j<3;j++){   
+                        let z=position.indexOf(x[j].style.left); 
+                       
+                        x[j].style.left=position.at(z-2)
+                        x[j].style.width=size.at(z-2)
+                        x[j].style.height=size.at(z-2)
+                        x[j].style.opacity=opacity.at(z-2)
+
+                    }
+                }
+                else if(index>1){
+                    for(let j=0;j<3;j++){   
+                        
+                    let z=position.indexOf(x[j].style.left);
+                  
+                    x[j].style.left=position.at(z-1)
+                    x[j].style.width=size.at(z-1)
+                    x[j].style.height=size.at(z-1)
+                    x[j].style.opacity=opacity.at(z-1)
+
+                    }
+                }
+                else{
+                 console.log("nothing")
+                }       
+
+            })
+        }
+        
+
+
+
+
+    </script>
+
+</body>
+</html>

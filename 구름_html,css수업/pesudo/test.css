@@ -1,0 +1,32 @@
+.parent p:first-of-type{
+ color:lightpink;
+}
+.container{
+    background-color:lightblue;
+    padding:10px;
+    margin-bottom:30px;
+
+
+}
+
+.container:hover{
+    background-color:lightcoral;
+}
+.focus:focus{
+    background-color:lightgreen;
+}
+
+
+.container2>div{
+    margin-top:30px;
+    background-color:lightpink;
+    width:100x;
+    height:100px;
+
+
+}
+.container2>div:nth-child(2n+1){
+    background-color:lightskyblue;}
+.container2>div:last-child{
+    width:50px;
+}

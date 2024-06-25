@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    
+
+
+
+
+
+
+    <button id="kakaologin">카카오로그인</button>
+
+    <button id="tokenget">토큰 받아오기</button>
+
+<script>
+    const REST_API_KEY="aad9fffaff5b6655b991487c5ff8b445";
+    const REDIRECT_URI="http://127.0.0.1:5500/oauth2/code/kakao"
+    const kakaologin=document.getElementById("kakaologin");
+    const tokenget=document.getElementById("tokenget");
+    kakaologin.addEventListener("click",()=>{
+        window.location.href=`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&scope=profile_nickname,profile_image,account_email,friends,talk_message,openid`
+            
+
+
+    })
+    const headers={
+        'Content-type':'application/x-www-form-urlencoded;charset=utf-8'
+    }
+    tokenget.addEventListener("click",async ()=>{
+        
+    /*const tokendata=await fetch("https://kauth.kakao.com/oauth/token", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded"
+  },
+  body: new URLSearchParams({
+    "grant_type": "authorization_code",
+    "client_id": REST_API_KEY,
+    "redirect_uri": REDIRECT_URI,
+    "code": 'RvNWfUZeevuXwZcjAMVL6iHagbiMRmwhkTnrKj6IgHYovz7efIm_1kNoGYQKKiWRAAABj3AGLDG2W8wW6V7rJg'
+  })
+})
+
+
+    console.log(tokendata);*/
+    
+ const data=  await fetch("https://kauth.kakao.com/oauth/token", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded"
+  },
+  body: new URLSearchParams({
+    "grant_type": "authorization_code",
+    "client_id": REST_API_KEY,
+    "redirect_uri": REDIRECT_URI,
+    "code": 'BR5xuqLZDjZtMhRzF-nSjq6w-bG1dzz-sPwR1uREZyZhW0YS1c-ECQAAAAQKKiVRAAABj3U1SDrUNEQ5evY1pg',
+    
+  })
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return response.json();
+})
+.then(data => {
+  
+  return data;
+})
+.catch(error => {
+  console.error('Error:', error);
+});
+
+console.log("data:",data);
+
+    const userdata=await fetch("https://kapi.kakao.com/v2/user/me",{
+      method:"GET",
+      headers:{
+        "Authorization":"Bearer jgqC5NfNnjLrVZzPmt8_fTbb-6872MQFAAAAAQoqJRAAAAGPdNznGswhKCpFsUJR"//`Bearer ${data.access_token}`,
+      }
+    })
+    .then(data=>{
+        return data.json();
+    })
+
+
+    console.log("user_data:",userdata);
+
+
+    const frienddata=await fetch("https://kapi.kakao.com/v1/api/talk/friends",{
+        method:"GET",
+      headers:{
+        "Authorization":"Bearer jgqC5NfNnjLrVZzPmt8_fTbb-6872MQFAAAAAQoqJRAAAAGPdNznGswhKCpFsUJR"//`Bearer ${data.access_token}`,
+      }
+    })
+    .then((resp)=>{return resp.json();})
+    console.log("fri data:",frienddata);
+    console.log("fri uuid:",frienddata.elements[0].uuid);
+
+
+    await fetch("https://kapi.kakao.com/v2/api/talk/memo/default/send",{
+      method:'POST',
+      headers:{
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": "Bearer jgqC5NfNnjLrVZzPmt8_fTbb-6872MQFAAAAAQoqJRAAAAGPdNznGswhKCpFsUJR"//`Bearer ${data.access_token}`
+
+      },
+      body: new URLSearchParams({
+        //receiver_uuids: JSON.stringify([frienddata.elements[0].uuid]),
+        template_object:JSON.stringify(template_object={
+        "object_type": "text",
+        "text": "텍스트 영역입니다. 최대 200자 표시 가능합니다.",
+        "link": {
+            "web_url": "https://developers.kakao.com",
+            "mobile_web_url": "https://developers.kakao.com"
+        },
+        "button_title": "바로 확인"
+    })
+
+
+
+
+    })
+    
+  
+
+    })
+    console.log("ok");
+  })
+
+</script>
+
+
+
+</body>
+</html>

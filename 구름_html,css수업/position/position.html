@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height:1000vh;
+        }
+        .container{
+            width:200px;
+            height:200px;
+            border:2px solid green;
+
+        }
+        .container div{
+            padding:10px;
+            border: 1px solid blue;
+            background-color:pink;
+        }
+        #staticbox{
+            position:static;
+            top:20px;
+            left:30px;
+        }
+        #relativebox{
+            position:relative;
+            top:20px;
+            left:20px;
+        }
+        #absbox{
+            position:absolute;
+            bottom:0px;
+        }
+        #fix{
+            position:fixed;
+            top:20px;
+            right:30px;
+        }
+        #sticky{
+            position:sticky;
+        }
+        #sticky{
+            position:sticky;
+            top:0;
+            padding:5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="staticbox">
+            static
+        </div>
+        <div id="relativebox">'
+            relative
+        </div>
+        <div id="absbox">
+            abs
+        </div>
+        <div id="fix">
+            fix
+        </div>
+    </div>
+<div id="sticky">
+    sticky
+</div>
+<div stlye="padding-bottom:2000px;">
+    dfsdfdsfdsffdsdfdgdsgdgdgdgdg
+    dfsdfdsfdsffdsdfdgdsgdgdgdgdg
+    dfsdfdsfdsffdsdfdgdsgdgdgdgdg
+    dfsdfdsfdsffdsdfdgdsgdgdgdgdg
+    dfsdfdsfdsffdsdfdgdsgdgdgdgdg
+    dfsdfdsfdsffdsdfdgdsgdgdgdgdg
+    dfsdfdsfdsffdsdfdgdsgdgdgdgdg
+    dfsdfdsfdsffdsdfdgdsgdgdgdgdg
+    dfsdfdsfdsffdsdfdgdsgdgdgdgdg
+
+</div>
+</body>
+</html>

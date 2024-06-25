@@ -1,0 +1,64 @@
+.user-select{
+   background-color:black;
+   width: 100%;
+   display:flex;
+   
+   justify-content:center;
+   height:50vh;
+   
+   position:relative;
+   
+   z-index:5;
+}
+.linear{
+   position:absolute;
+   width:100%;
+   height:80px;
+   z-index:10;
+   top:-80px;
+   background:linear-gradient(to bottom,rgba(12,12,12,0),rgba(12,12,12,0.5),
+   rgba(12,12,12,1));
+
+}
+.netflix-originals{
+   position:relative;
+   margin-top:20px;
+   margin-bottom:20px;
+   width:90%;
+   height:90%;
+   background-color:black;
+   display:flex;
+   flex-flow:row;
+   align-items:center;
+   /*justify-content:space-evenly;*/
+
+}
+.origin-movie{
+   position:absolute;
+   width:10%;
+   height:70%;
+   background-color:black;
+   border-radius:2px;
+   border:2px solid #121212;
+   background-repeat:no-repeat;
+   background-size:100% 100%;
+   transition:left 1s,height 1s,opacity 1s;
+}
+
+
+.text{
+   font-family:bold;
+   position:absolute;
+   left:0px;
+   top:15px;
+   color:white;
+   font-size:25px;
+   font-weight:600;
+   z-index:100;
+}
+
+.origin-movie:hover{
+   height:70%;
+   opacity:1;
+   cursor:pointer;
+}

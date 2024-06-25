@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #ex1{
+            border:10px dotted black;
+            padding:15px;
+            background-color:lightcoral;
+            background-clip:border-box;
+        }
+        #ex2{
+            border:10px dotted black;
+            padding:15px;
+            background-color:lightcoral;
+            background-clip:padding-box;
+        }
+        #ex3{
+            border:10px dotted black;
+            padding:15px;
+            background-color:lightcoral;
+            background-clip:content-box;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <p>background-clip:border-box this is a default</p>
+    <div id="ex1">
+        <p> the background extends behind the border.</p>
+    </div>
+    <div id="ex2">
+        <p> the background extends inside  edge of the border.</p>
+    </div>
+    <div id="ex3">
+        <p> the background extends to the edge of the content border.</p>
+    </div>
+</body>
+</html>

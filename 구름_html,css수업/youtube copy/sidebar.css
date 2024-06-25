@@ -1,0 +1,17 @@
+.side-bar{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    position:fixed;
+    top:57px;
+    bottom:0px;
+    left:0px;
+    border:2px solid #202020;
+
+
+
+}
+.side-bar img{
+    width:40px;
+}

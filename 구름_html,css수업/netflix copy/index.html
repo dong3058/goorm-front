@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="mainmovie.css">
+    <link rel="stylesheet" href="select.css">
+    
+</head>
+<body>
+    <div class="netflix-logo">
+    </div>
+    <div class="main-movie">
+        
+            <div class="movie-title">zxczxc</div>
+            <button class="play-button">
+                Play
+            </button>
+             <button class="my-list">
+                My List
+            </button>
+            <div class="summary">
+            <pre>
+             dsfsdf
+             sdfdsf\   
+            </pre>
+               
+            </div>
+        </div>
+    
+    </div>
+    <div class="user-select">
+        <div class="linear"></div>
+        <div class="text">netflix original</div>        
+       <div class="netflix-originals">
+            <div class="origin-movie"></div>
+            <div class="origin-movie"></div>
+            <div class="origin-movie"></div>
+            <div class="origin-movie"></div>
+            <div class="origin-movie"></div>
+
+            
+       </div>
+    </div>
+    <script type="text/javascript">
+        let y=document.querySelector(".main-movie");
+        let movie_title=document.querySelector(".movie-title")
+        let pre=document.querySelector("pre");
+        let z=document.querySelectorAll(".origin-movie")
+        let logo=document.querySelector(".netflix-logo")
+        let l="moviefoster/netflixlogo.jpg"
+        let leftoffsets=["12%","27%","45%","60%","75%"]
+        let movie_list=[["moviefoster/joker.jpg","Joker","testing sentence1"]
+    ,["moviefoster/jurassicpark.jpg","Jurassic Park","testing sentence2"],["moviefoster/darkknight.jpg","Dark Knight","testing sentence3"],
+    ["moviefoster/earth.jpg","Earth","testing sentence4"],["moviefoster/monster.jpg","Monster","testing sentence5"]]   
+        let height=["30%","50%","70%","50%","30%"]
+        let opacity=["40%","60%","100%","60%","40%"]    
+            y.style.backgroundImage=`url(${movie_list[0][0]})`
+            movie_title.textContent=movie_list[0][1]
+            pre.textContent=movie_list[0][2]      
+            logo.style.backgroundImage=`url(${l})`
+            //y.style.backgroundImage=`url(${x})`
+            for(let k=0;k<5;k++){
+                z[k].style.backgroundImage=`url(${movie_list[k][0]})`
+                //leftoffsets.push(z[k].offsetLeft)
+                z[k].style.left=leftoffsets[k];
+                z[k].style.opacity=opacity[k]
+                z[k].style.height=height[k]
+                
+                z[k].addEventListener("click",()=>{
+                y.style.backgroundImage=`url(${movie_list[k][0]})`
+                console.log(movie_list[k][1])
+                movie_title.textContent=movie_list[k][1]
+                pre.textContent=movie_list[k][2]
+                backgroundposition(movie_list[k][1])
+                })
+                }
+            console.log(leftoffsets)
+            for(let k=0;k<5;k++){
+            z[k].addEventListener("click",()=>{
+               
+                    let index=leftoffsets.indexOf(z[k].style.left);
+                    
+                    if(index<2){
+                        let p=2-index
+                        console.log("p:",p)
+                        console.log("index",index);
+                        for(let j=0;j<5;j++){ 
+                            let currentp=leftoffsets.indexOf(z[j].style.left)
+                            if(2>=currentp){
+                                
+                            //z[j].style.backgroundImage=`url(${movie_list.at(j-p)[0]})`
+                                z[j].style.left=leftoffsets.at(currentp+p)
+                        ///x[j].style.width=size.at(j-p)
+                                z[j].style.height=height.at(currentp+p)
+                                z[j].style.opacity=opacity.at(currentp+p)
+                            }
+                        else{
+                                z[j].style.left=leftoffsets.at(-5+currentp+p)
+                        ///x[j].style.width=size.at(j-p)
+                                z[j].style.height=height.at(-5+currentp+p)
+                                z[j].style.opacity=opacity.at(-5+currentp+p)
+                            }    
+                        }
+                    }
+                    else if(index>2){
+                    let p=index-2
+                    console.log("p:",p,"index:",index)
+                    for(let j=0;j<5;j++){   
+
+                    let currentp=leftoffsets.indexOf(z[j].style.left)
+                    //z[j].style.backgroundImage=`url(${movie_list.at(j-p)[0]})`
+                    z[j].style.left=leftoffsets.at(currentp-p)
+                   /// x[j].style.width=size.at(j-p)
+                    z[j].style.height=height.at(currentp-p)
+                    z[j].style.opacity=opacity.at(currentp-p)
+
+                    }
+                }
+                    else{
+                 console.log("nothing")
+                }       
+
+                })
+            }          
+
+ 
+            
+
+
+
+
+
+
+
+
+
+            function backgroundposition(x){
+                if(x==="Joker"){
+                    y.style.backgroundPosition="50% 20%";
+                    
+                }
+                else if(x==="Monster"){
+                    y.style.backgroundPosition="20% 50%";
+                }
+                else if(x==="Insect"){
+                    y.style.backgroundPosition='20% 20%';
+                }
+                else if(x==="Shining"){
+                    y.style.backgroundPosition="20% 40%";
+                }
+                else if(x==="Titanic"){
+                    y.style.backgroundPosition="20% 10%"
+
+                }
+                else{
+                    y.style.backgroundPosition="0% 0%";
+                }
+            }
+    </script>
+
+</body>
+</html>

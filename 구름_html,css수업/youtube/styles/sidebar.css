@@ -1,0 +1,21 @@
+.sidebar{
+    border:solid rgba(50,50,50,1) 1px;
+    border-radius:5px;
+    position:fixed;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    top:55px;
+    left:0px;
+    bottom:0px;
+    z-index:50;
+    width:72px;   
+    padding-top:10px;
+}
+.sidebar-link{
+    height:74px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}

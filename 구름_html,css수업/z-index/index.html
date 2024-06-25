@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            opacity:0.7;
+            font:12px;
+        }
+        #nor{
+            z-index:8;
+            height:100px;
+            border:1px dashed red;
+            margin: 0 50 0 50;
+            text-align:center;
+        }
+        #rel1{
+            z-index:3;
+            height:100px;
+            position:relative;
+            top:30px;
+            border:1px solid blue;
+            background-color:pink;
+            margin:0 50 0 50;
+            text-align:center;
+        }
+        #rel2{
+            z-index:4;
+            height:100px;
+            position:relative;
+            top:30px;
+            border:1px solid lightblue;
+            background-color:pink;
+            margin:0 50 0 50;
+            text-align:center;
+        }
+        #abs1{
+            z-index:5;
+            height:350px;
+            position:absolute;
+            border:1px solid green;
+            background-color:aqua;
+            width:150px;
+            top:15px;
+
+        }
+        #abs2{
+            z-index:1;
+            height:350px;
+            position:absolute;
+            border:1px solid green;
+            background-color:aqua;
+            width:150px;
+            top:15px;
+            left:300px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div id="abs1">
+        <br><span class="bold">div1</span>
+        <br>position:abs:
+        <br>zindex:3;
+    </div>
+    <div id="abs2">
+        <br><span class="bold">div121212</span>
+        <br>position:abs:
+        <br>zindex:1;
+    </div>
+    <div id="rel1">
+        <br><span class="bold">div2</span>
+        <br>position:rel;
+        <br>zindex:3;
+    </div>    
+    <div id="rel2">
+        <br><span class="bold">div2</span>
+        <br>position:rel;
+        <br>zindex:4;
+    </div>   
+    <div id="abs2">
+        <br><span class="bold">div3</span>
+        <br>position:abs;
+        <br>zindex:5;
+    </div>    
+    <div id="nor">
+        <br><span class="bold">div4</span>
+        <br>position:static
+        <br>zindex:7;
+    </div>
+
+
+
+
+
+</body>
+</html>
